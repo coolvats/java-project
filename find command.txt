@@ -1,0 +1,42 @@
+find command in linux -
+find command is used to locate/search files in linux.
+We can search file on the basis of name,type,permissions,
+extension,directory etc
+
+syntax-
+find <path> <search criteria> <action>
+
+-find 
+it will search all files in the current directory and in its subdirectories
+- find .
+- find . print ---all these same work
+
+---find file on the basis of names
+- find . -name abc.txt    (in the current directory and subdirectory)
+---- find file on the basis of location & wildcard character
+& on the generic term i.e. extension
+find /home/coolvats/abc -name '*.txt'
+
+--find any directory whose name is abc
+find -type d -name abc
+
+-- find only file 
+find -type f
+
+-- for case insensitive serch
+find -type d -iname abc
+
+-- find files with permission 777
+find -type f -perm 0777
+-- without permission 777
+find -type f ! -perm 0777
+--find files with permission 777 and then change its permission to 755
+find -type f -perm 0777 -exec chmod 755 {} \;
+find -type f -perm 0777 -print0|xargs -0 chmod 755
+
+---find file witn name or permission 777 and remove it
+find -type f -perm 0777 -exec rm -f \;
+find -type f -perm 0777 -print0|xargs -0 chmod 755
+
+
+
